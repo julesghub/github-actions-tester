@@ -4,6 +4,6 @@ def func(x):
     return x+1
 
 def test_func():
-    assert func(3) == 3
+    assert func(3) == 4
 
 print("Bye bye")
