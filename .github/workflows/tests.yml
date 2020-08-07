@@ -28,5 +28,6 @@ jobs:
     - name: Run pytest script
       run: |
         ls -l
-        which pytest
+        python -c "import sys; print(sys.version)"
+        python test_a.py
         echo Interesting....
