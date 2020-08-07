@@ -27,6 +27,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run pytest script
       run: |
-        which pytest
         ls -l
+        which pytest
         echo Interesting....
