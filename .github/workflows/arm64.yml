@@ -1,4 +1,4 @@
-name: ci
+name: build dockers
 
 on:
   push:
@@ -20,3 +20,18 @@ jobs:
       -
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
+      
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PWORD}}
+          
+      - name: docker build arm64
+        uses: docker/build-push-action@v3.1.0
+        with:
+          file: ./docker/Dockerfile
+          platforms: linux/arm64
+          tags: julesg/test_docker_builds
+          push: True
+  
